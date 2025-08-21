@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Pajo blog</title>
+<title>Pajo's Blog</title>
 <style>
   * { box-sizing: border-box; margin:0; padding:0; }
   html, body {
@@ -73,12 +73,60 @@
   #profile { background: linear-gradient(180deg, #fff7ec, #fff1dd); }
   #gallery { background: linear-gradient(180deg, #f0fff7, #e6ffee); }
 
+  /* Timeline */
+  .timeline {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 6px;
+  }
+  .timeline-item {
+    background: rgba(255,255,255,0.9);
+    border-left: 4px solid #357ABD;
+    border-radius: 8px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    gap:12px;
+    align-items: flex-start;
+  }
+  .timeline-date {
+    min-width: 84px;
+    font-size: 0.85rem;
+    color: #666;
+    text-align: right;
+    margin-right:8px;
+  }
+  .timeline-content h3 {
+    margin-bottom:6px;
+    font-size:1.05rem;
+    color:#222;
+  }
+  .timeline-content p {
+    font-size:0.95rem;
+    color:#444;
+    line-height:1.4;
+  }
+  .timeline-thumb {
+    width:110px;
+    height:70px;
+    overflow:hidden;
+    border-radius:6px;
+    flex-shrink:0;
+    object-fit:cover;
+  }
+
   /* Gallery */
   .gallery {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap:14px;
     margin-top:14px;
+    width:100%;
+    max-width:1000px;
   }
   @media (max-width:1024px){.gallery{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:720px){.gallery{grid-template-columns:1fr;} }
@@ -102,32 +150,64 @@
   .photo-card .desc{font-size:0.9rem;color:#444; padding:10px 12px 8px;}
 
   .section h2{margin-bottom:10px;}
-  .section p{max-width:600px; text-align:center;}
+  .section p{max-width:800px; text-align:center;}
 </style>
 </head>
 <body>
 
 <header>
-  <h1> Pajo's Website</h1>
+  <h1> Pajo's Blog</h1>
+  <p style="margin-top:6px;">Timeline — mga alaala at bagong posts</p>
 </header>
 
 <nav>
-  <a data-target="home" class="nav-active">Home</a>
+  <a data-target="home" class="nav-active">Timeline</a>
   <a data-target="gallery">Gallery</a>
   <a data-target="profile">Profile</a>
   <a data-target="about">About</a>
 </nav>
 
 <main>
-  <!-- HOME -->
+  <!-- HOME / TIMELINE -->
   <section id="home" class="section active">
-    <h2>hi guys...welcome sa Pajo's Website!!!</h2>
-    <p style="margin:6px 0 14px; font-size:1.3rem; font-weight:bold; text-align:center; max-width:600px;">
-      Memories
+    <h2>Pajo's Blog — Timeline</h2>
+    <p style="margin:6px 0 14px; font-size:1rem; text-align:center; max-width:800px;">
+      Dito makikita ang mga huling pangyayari, photo-captures, at mini posts. Click ang image para lumaki.
     </p>
 
-    <!-- Featured Gallery -->
-    <div class="gallery">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Aug 20, 2025</div>
+        <img class="timeline-thumb" src="images/photo16.jpg" alt="Thumb 1">
+        <div class="timeline-content">
+          <h3>Mini Hangout with the Guji Boys</h3>
+          <p>Nag-enjoy kami sa maikling lakad at kwentuhan. Ang saya ng reunion na 'to — kulang na lang ang iba!</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 15, 2025</div>
+        <img class="timeline-thumb" src="images/photo7.jpg" alt="Thumb 2">
+        <div class="timeline-content">
+          <h3>Graduation Flashback</h3>
+          <p>Throwback sa graduation day ng daycare. Nakakatuwang balikan ang mga litrato na ito.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">May 02, 2025</div>
+        <img class="timeline-thumb" src="images/photo11.jpg" alt="Thumb 3">
+        <div class="timeline-content">
+          <h3>Unang Uniform ng ES Boys</h3>
+          <p>Picture ng unang uniform na ginamit ng team — alaala ng teamwork at saya.</p>
+        </div>
+      </div>
+
+      <!-- sample — pwede mong dagdagan dito -->
+    </div>
+
+    <!-- Featured Gallery (kept for timeline view) -->
+    <div class="gallery" style="margin-top:18px;">
       <div class="photo-card">
         <img src="images/photo7.jpg" alt="Graduation">
         <div class="desc">Graduation in daycare</div>
@@ -145,11 +225,11 @@
         <div class="desc">Batch 2015-2016</div>
       </div>
       <div class="photo-card">
-        <img src="images/photo6.jpg" alt="Beach">
+        <img src="images/photo6.jpg" alt="Team">
         <div class="desc">Team Bantugo</div>
       </div>
       <div class="photo-card">
-        <img src="images/photo11.jpg" alt="Beach">
+        <img src="images/photo11.jpg" alt="Uniform">
         <div class="desc">First Uniform of ES Boys</div>
       </div>
     </div>
@@ -157,10 +237,10 @@
 
   <!-- ABOUT -->
   <section id="about" class="section">
-    <h2></h2>
+    <h2>About</h2>
     <p style="margin:6px 0 14px; font-size:1rem; text-align:center; max-width:600px;">
-      Hi! I’m <strong>Romano Joshua Giro C.</strong> , the creator of this system. I’m an IS Student who Learning how to create a basic website,
-      I built this site to practice my skills, and inspire others who want to learn programming.
+      Hi! I’m <strong>Romano Joshua Giro C.</strong>, the creator of this system. I’m an IS Student who is learning how to create a basic website.
+      I built this site to practice my skills and inspire others who want to learn programming.
     </p>
     <p style="margin:6px 0 14px; font-size:1rem; text-align:center; max-width:600px;">
       For inquiries or collaboration, feel free to message me:
@@ -170,7 +250,7 @@
 
  <!-- PROFILE -->
 <section id="profile" class="section">
-  <h2></h2>
+  <h2>Profile</h2>
   <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
     <!-- Avatar -->
     <div style="width:140px; height:140px; border-radius:50%; overflow:hidden; background:linear-gradient(135deg,#dfeefc,#f3e8ff); display:flex; justify-content:center; align-items:center; box-shadow:0 4px 14px rgba(53,122,189,0.08);">
@@ -194,14 +274,14 @@
       <dd style="margin-left:0; color:#555; margin-bottom:6px;">09915725285</dd>
 
       <dt style="font-weight:bold; color:#222; margin-top:8px;">Hobbies</dt>
-      <dd style="margin-left:0; color:#555; margin-bottom:6px;">Playing Basketball,Playing Online Games,Listening Music and Etc.</dd>
+      <dd style="margin-left:0; color:#555; margin-bottom:6px;">Playing Basketball, Playing Online Games, Listening Music, etc.</dd>
     </dl>
   </div>
 </section>
 
   <!-- GALLERY -->
   <section id="gallery" class="section">
-    <h2></h2>
+    <h2>Gallery</h2>
     <div class="gallery">
       <div class="photo-card">
         <img src="images/photo16.jpg" alt="Photo 1">
@@ -251,8 +331,8 @@ links.forEach(link => {
   });
 });
 
-// Click-to-enlarge gallery images
-const galleryImages = document.querySelectorAll(".photo-card img");
+// Click-to-enlarge gallery images & timeline thumbs
+const galleryImages = document.querySelectorAll(".photo-card img, .timeline-thumb");
 galleryImages.forEach(img=>{
   img.addEventListener("click", ()=>{
     const modal = document.createElement("div");
