@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pajo blog</title>
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f9f9f9, #eef2f3);
+    color: #333;
+  }
+
+  header {
+    background: #4a90e2;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { font-size:0.95rem; opacity:0.9; }
+
+  nav {
+    background: #357ABD;
+    padding: 10px;
+    text-align: center;
+  }
+  nav a {
+    color: #fff;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.25s;
+  }
+  nav a:hover { color: #ffeb3b; }
+  .nav-active { text-decoration: underline; text-underline-offset:6px; }
+
+  main {
+    height: calc(100% - 112px);
+    position: relative;
+  }
+
+  .section {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    opacity:0;
+    visibility:hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  .section.active {
+    opacity:1;
+    visibility:visible;
+  }
+
+  /* Section backgrounds */
+  #home { background: linear-gradient(180deg, #e6f7ff, #dff3ff); }
+  #about { background: linear-gradient(180deg, #fff0f8, #ffe6f4); }
+  #profile { background: linear-gradient(180deg, #fff7ec, #fff1dd); }
+  #gallery { background: linear-gradient(180deg, #f0fff7, #e6ffee); }
+
+  /* Gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:14px;
+    margin-top:14px;
+  }
+  @media (max-width:1024px){.gallery{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:720px){.gallery{grid-template-columns:1fr;} }
+
+  .photo-card {
+    background:#ffffffcc;
+    border-radius:8px;
+    overflow:hidden;
+    text-align:center;
+    padding-bottom:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.06);
+    cursor:pointer;
+    transition:transform 0.2s;
+  }
+  .photo-card:hover{transform:scale(1.03);}
+  .photo-card img {
+    width: 100%;
+    height: 180px; /* mas malaki ng kaunti */
+    object-fit: cover;
+  }
+  .photo-card .desc{font-size:0.9rem;color:#444; padding:10px 12px 8px;}
+
+  .section h2{margin-bottom:10px;}
+  .section p{max-width:600px; text-align:center;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1> Pajo's Website</h1>
+</header>
+
+<nav>
+  <a data-target="home" class="nav-active">Home</a>
+  <a data-target="gallery">Gallery</a>
+  <a data-target="profile">Profile</a>
+  <a data-target="about">About</a>
+</nav>
+
+<main>
+  <!-- HOME -->
+  <section id="home" class="section active">
+    <h2>hi guys...welcome sa Pajo's Website!!!</h2>
+    <p style="margin:6px 0 14px; font-size:1.3rem; font-weight:bold; text-align:center; max-width:600px;">
+      Memories
+    </p>
+
+    <!-- Featured Gallery -->
+    <div class="gallery">
+      <div class="photo-card">
+        <img src="images/photo7.jpg" alt="Graduation">
+        <div class="desc">Graduation in daycare</div>
+      </div>
+      <div class="photo-card">
+        <img src="images/photo8.jpg" alt="Hiking">
+        <div class="desc">The Guji Boys!!!</div>
+      </div>
+      <div class="photo-card">
+        <img src="images/photo9.jpg" alt="Family">
+        <div class="desc">with Ma'am Marga</div>
+      </div>
+      <div class="photo-card">
+        <img src="images/photo10.jpg" alt="Beach">
+        <div class="desc">Batch 2015-2016</div>
+      </div>
+      <div class="photo-card">
+        <img src="images/photo6.jpg" alt="Beach">
+        <div class="desc">Team Bantugo</div>
+      </div>
+      <div class="photo-card">
+        <img src="images/photo11.jpg" alt="Beach">
+        <div class="desc">First Uniform of ES Boys</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2></h2>
+    <p style="margin:6px 0 14px; font-size:1rem; text-align:center; max-width:600px;">
+      Hi! I’m <strong>Romano Joshua Giro C.</strong> , the creator of this system. I’m an IS Student who Learning how to create a basic website,
+      I built this site to practice my skills, and inspire others who want to learn programming.
+    </p>
+    <p style="margin:6px 0 14px; font-size:1rem; text-align:center; max-width:600px;">
+      For inquiries or collaboration, feel free to message me:
+      <br /> <em>giroromano123@gmail.com</em>
+    </p>
+  </section>
+
+ <!-- PROFILE -->
+<section id="profile" class="section">
+  <h2></h2>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+    <!-- Avatar -->
+    <div style="width:140px; height:140px; border-radius:50%; overflow:hidden; background:linear-gradient(135deg,#dfeefc,#f3e8ff); display:flex; justify-content:center; align-items:center; box-shadow:0 4px 14px rgba(53,122,189,0.08);">
+      <img src="images/photo5.jpg" alt="Avatar" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <!-- Biodata -->
+    <dl style="text-align:left; max-width:360px;">
+      <dt style="font-weight:bold; color:#222; margin-top:8px;">Full Name</dt>
+      <dd style="margin-left:0; color:#555; margin-bottom:6px;">Romano Joshua Giro C.</dd>
+
+      <dt style="font-weight:bold; color:#222; margin-top:8px;">Age</dt>
+      <dd style="margin-left:0; color:#555; margin-bottom:6px;">20</dd>
+
+      <dt style="font-weight:bold; color:#222; margin-top:8px;">Email</dt>
+      <dd style="margin-left:0; color:#555; margin-bottom:6px;">giroromano123@gmail.com</dd>
+
+      <dt style="font-weight:bold; color:#222; margin-top:8px;">Location</dt>
+      <dd style="margin-left:0; color:#555; margin-bottom:6px;">Bantugo Nagbukel Ilocos Sur</dd>
+
+      <dt style="font-weight:bold; color:#222; margin-top:8px;">Contact Number</dt>
+      <dd style="margin-left:0; color:#555; margin-bottom:6px;">09915725285</dd>
+
+      <dt style="font-weight:bold; color:#222; margin-top:8px;">Hobbies</dt>
+      <dd style="margin-left:0; color:#555; margin-bottom:6px;">Playing Basketball,Playing Online Games,Listening Music and Etc.</dd>
+    </dl>
+  </div>
+</section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <h2></h2>
+    <div class="gallery">
+      <div class="photo-card">
+        <img src="images/photo16.jpg" alt="Photo 1">
+      </div>
+      <div class="photo-card">
+        <img src="images/photo13.jpg" alt="Photo 2">
+      </div>
+      <div class="photo-card">
+        <img src="images/photo15.jpg" alt="Photo 3">
+      </div>
+      <div class="photo-card">
+        <img src="images/photo17.jpg" alt="Photo 4">
+      </div>
+      <div class="photo-card">
+        <img src="images/photo12.jpg" alt="Photo 5">
+      </div>
+      <div class="photo-card">
+        <img src="images/photo14.jpg" alt="Photo 6">
+      </div>
+      <div class="photo-card">
+        <img src="images/photo18.jpg" alt="Photo 7">
+      </div>
+      <div class="photo-card">
+        <img src="images/photo22.jpg" alt="Photo 8">
+      </div>
+      <div class="photo-card">
+        <img src="images/photo20.jpg" alt="Photo 9">
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const links = document.querySelectorAll("nav a");
+const sections = document.querySelectorAll(".section");
+
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    links.forEach(l=>l.classList.remove("nav-active"));
+    link.classList.add("nav-active");
+
+    sections.forEach(sec => sec.classList.remove("active"));
+    const targetId = link.getAttribute("data-target");
+    const targetSection = document.getElementById(targetId);
+
+    setTimeout(()=> targetSection.classList.add("active"), 50);
+  });
+});
+
+// Click-to-enlarge gallery images
+const galleryImages = document.querySelectorAll(".photo-card img");
+galleryImages.forEach(img=>{
+  img.addEventListener("click", ()=>{
+    const modal = document.createElement("div");
+    modal.style.cssText = `
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.8); display:flex; justify-content:center; align-items:center;
+      z-index:2000;
+    `;
+    const modalImg = document.createElement("img");
+    modalImg.src = img.src;
+    modalImg.style.maxWidth="90%";
+    modalImg.style.maxHeight="90%";
+    modal.appendChild(modalImg);
+    modal.addEventListener("click",()=>modal.remove());
+    document.body.appendChild(modal);
+  });
+});
+</script>
+
+</body>
+</html>
